@@ -25,8 +25,10 @@ export default class NewPostScreen extends React.Component {
 
   onPost = () => {
     const { text } = this.state;
-
-    if (text) {
+    if (text.length < 40){
+      alert('Write at least 40 Characters');
+    }
+    else if (text) {
 
       this.setState({error: error}); //clear out error messages
       Fire.shared.post({ text: text.trim() });
