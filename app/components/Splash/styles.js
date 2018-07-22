@@ -20,20 +20,28 @@ const styles = StyleSheet.create({
     },
 
     image:{
-        height: 100,
-        width: 100,
-        backgroundColor: color.grey,
+        height: 50,
+        width: 50,
+        backgroundColor: color.white,
         marginBottom: padding,
         resizeMode
     },
 
     title: {
-        fontSize:fontSize.large + 5,
-        lineHeight:fontSize.large + 7,
-        fontFamily: fontFamily.medium,
-        color: "#FF553F",
-        letterSpacing: 1
+        fontSize: fontSize.large + 15,
+        lineHeight: fontSize.large + 20,
+        fontFamily: fontFamily.bold,
+        color: "#02726b",
+        letterSpacing: 1 
     },
+    tagLine: {
+        color: color.light_black,
+        fontSize: fontSize.large -6,
+        lineHeight: fontSize.large,
+        marginTop: 5,
+        justifyContent: "center" 
+    },
+
 
     activityIndicatorContainer: {
         justifyContent: "center",

@@ -13,10 +13,12 @@ const styles = StyleSheet.create({
         height: normalize(65),
         fontSize: fontSize.regular + 2,
         fontWeight: "600",
-        height: 40,
+        height: 50,
         marginHorizontal: 20,
-        paddingLeft: 45,
+        paddingLeft: 25,
         borderRadius: 20,
+        borderWidth: 1,
+        borderColor: "#02726b"
     }
 });
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from "react-native";
-import { Scene, Router, Actions, Stack, TabIcon, Tabs } from 'react-native-router-flux';
+import { Scene, Router, ActionConst, Stack, TabIcon, Tabs } from 'react-native-router-flux';
 
 //Splash Component
 import Splash from '../components/Splash/Splash';
@@ -61,7 +61,7 @@ export default class extends React.Component {
                     <Stack key="Main" initial={this.state.isLoggedIn}>
 
                         <Scene key="tabbar" tabs tabBarPosition="bottom" >
-                            <Scene key="Feed" title="Feeds" component={Feed} icon={TabIcon} />
+                            <Scene key="Feed" title="Feeds" component={Feed}  icon={TabIcon}  />
                             <Scene key="NewPost" title="New Post" component={NewPost} icon={TabIcon} />
                         </Scene>
 
@@ -76,7 +76,8 @@ export default class extends React.Component {
 const styles = StyleSheet.create({
     navBar: {
         backgroundColor: "#fff",
-        borderBottomWidth: 0
+        borderBottomWidth: 0,
+        justifyContent: 'center'
     },
 
     title: {

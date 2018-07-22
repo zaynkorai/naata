@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
 import { theme } from "../../index"
-const {padding, color, fontSize, fontFamily } = theme;
+const {padding, fontSize, fontFamily } = theme;
 
 const styles = StyleSheet.create({
     forgetText:{
         textAlign:"center",
-        color:color.black,
-        marginBottom: padding,
+        justifyContent:"center",
+        color: "#02726b",
+        paddingBottom: 100,
         fontSize: fontSize.regular,
         fontFamily: fontFamily.medium,
     }

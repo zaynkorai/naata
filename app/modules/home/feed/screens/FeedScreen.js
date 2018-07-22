@@ -16,17 +16,9 @@ export default class FeedScreen extends Component {
   };
 
   componentDidMount() {
-    // Check if we are signed in...
     if (Fire.shared.uid) {
       // If we are, then we can get the first 5 posts
       this.makeRemoteRequest();
-    } else {
-      // If we aren't then we should just start observing changes. This will be called when the user signs in
-      firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-          this.makeRemoteRequest();
-        }
-      });
     }
   }
 
@@ -45,7 +37,6 @@ export default class FeedScreen extends Component {
     });
   };
 
-  // Call our database and ask for a subset of the user posts
   makeRemoteRequest = async lastKey => {
     // If we are currently getting posts, then bail out..
     if (this.state.loading) {
@@ -66,20 +57,15 @@ export default class FeedScreen extends Component {
       posts[child.key] = child;
     }
     this.addPosts(posts);
-
-    // Finish loading, this will stop the refreshing animation.
     this.setState({ loading: false });
   };
 
-  // Because we want to get the most recent items, don't pass the cursor back.
-  // This will make the data base pull the most recent items.
   _onRefresh = () => this.makeRemoteRequest();
 
   // If we press the "Load More..." footer then get the next page of posts
   onPressFooter = () => this.makeRemoteRequest(this.lastKnownKey);
 
   render() {
-    // Let's make everything purrty by calling this method which animates layout changes.
     LayoutAnimation.easeInEaseOut();
     return (
       <List

@@ -1,17 +1,15 @@
 import React from 'react';
 import { TextInput, View, StyleSheet } from 'react-native';
-import { Button } from 'react-native-elements'
-import { Actions } from 'react-native-router-flux';
+import { Button, FormValidationMessage } from 'react-native-elements'
+import {Actions} from 'react-native-router-flux';
+import { isEmpty } from '../../../auth/utils/validate'
 
 import Fire from '../Fire';
+import styles from './styles';
 
-const validation = {
-    length: {
-      minimum: 500,
-      message: '^Please Write atleast 50 Character long'
-    }
-  }
-
+const error = {
+  text: "",
+}
 
 export default class NewPostScreen extends React.Component {
 
@@ -19,16 +17,21 @@ export default class NewPostScreen extends React.Component {
     super(props)
 
     this.state = {
-      text: "",
-    }
+      error: error
+  }
+
+  this.myTextInput = React.createRef();
   }
 
   onPost = () => {
-
     const { text } = this.state;
 
     if (text) {
+
+      this.setState({error: error}); //clear out error messages
       Fire.shared.post({ text: text.trim() });
+      Actions.Feed()
+      this.myTextInput.current.clear();
     } else {
       alert('Need valid description');
     }
@@ -46,22 +49,22 @@ export default class NewPostScreen extends React.Component {
           }}
           multiline={true}
           numberOfLines={5}
+          ref={this.myTextInput}
         />
+        {
+          (!isEmpty(this.props.error)) &&
+          <FormValidationMessage>
+            {this.props.error}
+          </FormValidationMessage>
+        }
 
-        <Button       
+        <Button
+          raised
           title="Post"
-          titleStyle={{ fontWeight: "200" }}
-          buttonStyle={{
-            width: 100,
-            height: 45,
-            margin: 5,
-            borderColor: "transparent",
-            borderWidth: 0,
-            borderRadius: 5,
-            alignSelf: 'flex-end'
-          }}
+          containerViewStyle={styles.buttonContainer}
+          buttonStyle={styles.button}
+          textStyle={styles.buttonText}
           containerStyle={{ marginTop: 20 }}
-
           onPress={this.onPost}
 
         />
@@ -69,21 +72,3 @@ export default class NewPostScreen extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-flex: 1,
-backgroundColor: 'white',
-  },
-
-  input: {
-    height: 200,
-    padding: 10,
-    margin: 10,
-    marginTop: 60,
-    fontSize: 18,
-    borderWidth: 1,
-    borderRadius: 12,
-    borderColor: '#48BBEC',
-  },
-});

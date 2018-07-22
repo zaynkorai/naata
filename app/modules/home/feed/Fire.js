@@ -2,9 +2,6 @@
 import getUser from './utils/getUser';
 import firebase from '../../../config/firebase';
 import '@firebase/firestore'
-// Required for side-effects
-
-const collectionName = 'Posts';
 
 class Fire {
   constructor() {
@@ -59,14 +56,13 @@ class Fire {
         uid: this.uid,
         timestamp: this.timestamp,
         user: getUser(),
-        // user: user.username,
       });
     
   };
 
   // Helpers
   get collection() {
-    return firebase.firestore().collection(collectionName);
+    return firebase.firestore().collection('Posts');
   }
 
   get uid() {

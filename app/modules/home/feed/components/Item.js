@@ -1,39 +1,34 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import {Divider} from 'react-native-elements';
 
-const padding = 12;
+import styles from './styles';
 
 export default class Item extends React.Component {
   state = {};
 
 
   render() {
-    const { text, name, image } = this.props;
+    const { text, name , timestamp} = this.props;
 
     return (
       <View>
         <Metadata name={name} description={text} />
-        <Header image={{ uri: image }} name={name} />
+        <View style={styles.orContainer}>
+          <Divider style={styles.divider} />
+        </View>
       </View>
     );
   }
 }
 
-const Metadata = ({ name, description }) => (
+const Metadata = ({ name, description, timestamp}) => (
   <View style={styles.padding}>
-    <IconBar />
     <Text style={styles.text}>{name}</Text>
     <Text style={styles.subtitle}>{description}</Text>
-  </View>
-);
+    <IconBar  timestamp={timestamp}/>
 
-const Header = ({ name, image }) => (
-  <View style={[styles.row, styles.padding]}>
-    <View style={styles.row}>
-      <Text style={styles.text}>{name}</Text>
-    </View>
-    <Icon name="ios-more" />
   </View>
 );
 
@@ -41,34 +36,12 @@ const Icon = ({ name }) => (
   <Ionicons style={{ marginRight: 8 }} name={name} size={22} color="black" />
 );
 
-const IconBar = () => (
+const IconBar = ({timestamp}) => (
   <View style={styles.row}>
     <View style={styles.row}>
       <Icon name="ios-heart-outline" />
       <Icon name="ios-chatbubbles-outline" />
     </View>
+    <Text>{timestamp}</Text>
   </View>
 );
-
-const styles = StyleSheet.create({
-  text: { fontWeight: '600' },
-  subtitle: {
-    opacity: 0.8,
-  },
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  padding: {
-    padding,
-  },
-  avatar: {
-    aspectRatio: 1,
-    backgroundColor: '#D8D8D8',
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: '#979797',
-    resizeMode: 'cover',
-    marginRight: padding,
-  },
-});

@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         paddingBottom: padding * 2,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#FF553F",
+        backgroundColor: "#02726b",
 
     },
 
@@ -28,11 +28,18 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        fontSize: fontSize.large + 2,
-        lineHeight: fontSize.large + 4,
+        fontSize: fontSize.large + 15,
+        lineHeight: fontSize.large + 20,
         fontFamily: fontFamily.bold,
         color: color.white,
         letterSpacing: 1
+    },
+
+    tagLine: {
+        color: color.white,
+        fontSize: fontSize.large -4,
+        lineHeight: fontSize.large,
+        justifyContent: "center" 
     },
 
     subText: {
@@ -58,7 +65,8 @@ const styles = StyleSheet.create({
 
     buttonContainer: {
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        borderRadius: 20
     },
 
     containerView: {
@@ -67,13 +75,13 @@ const styles = StyleSheet.create({
 
     socialButton: {
         height: normalize(55),
-        borderRadius: 2,
+        borderRadius: 20,
         marginTop: 0,
         marginBottom: 0
     },
 
     button: {
-        backgroundColor: "#FF553F",
+        backgroundColor: "#02726b",
         height: normalize(55)
     },
 
@@ -96,9 +104,9 @@ const styles = StyleSheet.create({
         color: "#414141"
     },
 
-    signInText: {
-        fontSize: fontSize.regular,
-        color: "#FF553F",
+    signUpText: {
+        fontSize: fontSize.regular + 4,
+        color: "#02726b",
         fontFamily: fontFamily.medium
     },
 

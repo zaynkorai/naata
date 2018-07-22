@@ -49,6 +49,8 @@ class Welcome extends React.Component {
                 <View style={styles.container}>
                     <View style={styles.topContainer}>
                         <Text style={styles.title}>Naata</Text>
+                        <Text style={styles.tagLine}>A Education Connection Between</Text>  
+                        <Text style={styles.tagLine}>Needy & Higher Education Students</Text>                
                     </View>
 
                     <View style={styles.bottomContainer}>
@@ -65,28 +67,25 @@ class Welcome extends React.Component {
 
                             <View style={styles.orContainer}>
                                 <Divider style={styles.divider} />
-                                <Text style={styles.orText}>
-                                    Or
-                                </Text>
                             </View>
 
                             <Button
                                 raised
                                 borderRadius={20}
-                                title={'SIGN UP WITH E-MAIL'}
+                                title={'SIGN IN WITH E-MAIL'}
                                 containerViewStyle={[styles.containerView]}
                                 buttonStyle={[styles.button]}
                                 textStyle={styles.buttonText}
-                                onPress={Actions.Register} />
+                                onPress={Actions.Login} />
                         </View>
                         <View style={styles.bottom}>
                             <Text style={styles.bottomText}>
-                                Already have an account?
+                                Make an account
                             </Text>
 
-                            <TouchableOpacity onPress={Actions.Login}>
-                                <Text style={styles.signInText}>
-                                    Sign in
+                            <TouchableOpacity onPress={Actions.Register}>
+                                <Text style={styles.signUpText}>
+                                    Sign Up
                                 </Text>
                             </TouchableOpacity>
                         </View>
