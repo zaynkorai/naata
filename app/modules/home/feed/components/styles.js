@@ -5,7 +5,11 @@ const { padding, windowWidth } = theme;
 
 
 const styles = StyleSheet.create({
-    text: { fontWeight: '600' },
+    text: {
+        fontWeight: '600',
+        color: "#02726b",
+    },
+
     subtitle: {
         opacity: 0.8,
     },

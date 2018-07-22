@@ -10,7 +10,7 @@ export default class Item extends React.Component {
 
 
   render() {
-    const { text, name , timestamp} = this.props;
+    const { text, name} = this.props;
 
     return (
       <View>
@@ -23,25 +23,26 @@ export default class Item extends React.Component {
   }
 }
 
-const Metadata = ({ name, description, timestamp}) => (
+const Metadata = ({ name, description}) => (
   <View style={styles.padding}>
     <Text style={styles.text}>{name}</Text>
     <Text style={styles.subtitle}>{description}</Text>
-    <IconBar  timestamp={timestamp}/>
+    <IconBar/>
 
   </View>
 );
 
 const Icon = ({ name }) => (
   <Ionicons style={{ marginRight: 8 }} name={name} size={22} color="black" />
-);
+); 
 
-const IconBar = ({timestamp}) => (
+
+const IconBar = () => (
   <View style={styles.row}>
     <View style={styles.row}>
       <Icon name="ios-heart-outline" />
       <Icon name="ios-chatbubbles-outline" />
     </View>
-    <Text>{timestamp}</Text>
+    <Text>timestamp</Text>
   </View>
 );

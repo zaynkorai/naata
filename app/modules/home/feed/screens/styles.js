@@ -31,12 +31,12 @@ const styles = StyleSheet.create({
   buttonContainer: {
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 20
   },
 
   button: {
     backgroundColor: "#02726b",
     height: normalize(55),
+    width: windowWidth,
   },
 
   buttonText: {

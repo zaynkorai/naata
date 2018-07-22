@@ -26,7 +26,7 @@ export default class NewPostScreen extends React.Component {
   onPost = () => {
     const { text } = this.state;
     if (text.length < 40){
-      alert('Write at least 40 Characters');
+      alert('Write at least 40');
     }
     else if (text) {
 
