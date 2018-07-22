@@ -4,10 +4,8 @@ var fetch = require('node-fetch')
 const admin = require('firebase-admin')
 admin.initializeApp(functions.config().firebase);
 
-
 //send the push notification 
-exports.sendPushNotification = functions.database.ref('posts/{id}')
-    .onCreate(event => {
+exports.sendPushNotification = functions.firestore.document('Posts').onUpdate(event => {
 
         const root = event.data.ref.root
         var posts = []

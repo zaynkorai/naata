@@ -10,7 +10,7 @@ class Fire {
 
     this.state = {
       currentUser: ""
-  }
+    }
   }
   // Download Data
   getPaged = async ({ size, start }) => {
@@ -22,7 +22,7 @@ class Fire {
 
       const querySnapshot = await ref.get();
       const data = [];
-      querySnapshot.forEach(function(doc) {
+      querySnapshot.forEach(function (doc) {
         if (doc.exists) {
           const post = doc.data() || {};
 
@@ -47,18 +47,18 @@ class Fire {
   };
 
   post = async ({ text }) => {
-      this.collection.child(this.uid).set({
-        text,
-        uid: this.uid,
-        timestamp: this.timestamp,
-        user: getUser(),
-      });
-    
+    this.collection.add({
+      text,
+      uid: this.uid,
+      timestamp: this.timestamp,
+      user: getUser(),
+    });
+
   };
 
   // Helpers
   get collection() {
-    return firebase.database().ref('Posts');
+    return firebase.firestore().collection('Posts');
   }
 
   get uid() {
