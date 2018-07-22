@@ -8,14 +8,10 @@ class Fire {
 
     firebase.firestore().settings({ timestampsInSnapshots: true });
 
-    // Listen for auth
-    firebase.auth().onAuthStateChanged(async user => {
-      if (!user) {
-        await firebase.auth().signInAnonymously();
-      }
-    });
+    this.state = {
+      currentUser: ""
   }
-
+  }
   // Download Data
   getPaged = async ({ size, start }) => {
     let ref = this.collection.orderBy('timestamp', 'desc').limit(size);
@@ -36,7 +32,7 @@ class Fire {
           const name = user.name;
           const reduced = {
             key: doc.id,
-            name: (name || 'Secret Duck').trim(),
+            name: (name || 'James Bond').trim(),
             ...post,
           };
           data.push(reduced);
@@ -51,7 +47,7 @@ class Fire {
   };
 
   post = async ({ text }) => {
-      this.collection.add({
+      this.collection.child(this.uid).set({
         text,
         uid: this.uid,
         timestamp: this.timestamp,
@@ -62,7 +58,7 @@ class Fire {
 
   // Helpers
   get collection() {
-    return firebase.firestore().collection('Posts');
+    return firebase.database().ref('Posts');
   }
 
   get uid() {

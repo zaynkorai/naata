@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "685442672122",
+    "firebase_url": "https://nata-01.firebaseio.com",
+    "project_id": "nata-01",
+    "storage_bucket": "nata-01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685442672122:android:35af3d73b9b6e7e6",
+        "android_client_info": {
+          "package_name": "android.package"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "685442672122-7l6qtmmrjlarqhp1r5589i4ca2grpjjg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmLPgyq4KLcBYZJe-9wWm-X48oncz6yNw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

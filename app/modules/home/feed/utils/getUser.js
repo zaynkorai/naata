@@ -8,10 +8,8 @@ function getUser() {
     user.providerData.forEach(function (profile) {
       userId = profile.uid;
       name = profile.displayName
-
     });
   }
-
   return {
     userId,
     name,
