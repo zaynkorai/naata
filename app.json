@@ -4,6 +4,7 @@
     "icon": "./icon.png",
     "version": "1.0.0",
     "sdkVersion": "27.0.0",
+    "description": "“Naata” a urdu word for connection. Naata is an iPhone and Android mobile application built to educate and build underdeveloped, particularly rural communities.. It connects less privileged students of rural areas to higher education students (when they are available in same city ). ",
 
     "android": {
       "package": "com.korai.naata"

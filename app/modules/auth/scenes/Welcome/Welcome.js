@@ -49,8 +49,9 @@ class Welcome extends React.Component {
                 <View style={styles.container}>
                     <View style={styles.topContainer}>
                         <Text style={styles.title}>Naata</Text>
-                        <Text style={styles.tagLine}>A Education Connection Between</Text>  
-                        <Text style={styles.tagLine}>Needy & Higher Education Students</Text>                
+                        <Text style={styles.tagLine}>A Education Connection </Text>              
+                        <Text style={styles.tagLine}>Connecting less privileged Students </Text>              
+            
                     </View>
 
                     <View style={styles.bottomContainer}>

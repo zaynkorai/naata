@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
 
     tagLine: {
         color: color.white,
-        fontSize: fontSize.large -4,
-        lineHeight: fontSize.large,
+        fontSize: fontSize.large -10,
+        lineHeight: fontSize.large-2,
         justifyContent: "center" 
     },
 

@@ -3,18 +3,22 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import {Divider} from 'react-native-elements';
 
+var moment = require('moment');
+
 import styles from './styles';
 
+
 export default class Item extends React.Component {
-  state = {};
+  state = {
+  };
 
 
   render() {
-    const { text, name} = this.props;
+    const { text, name, timestamp} = this.props;
 
     return (
       <View>
-        <Metadata name={name} description={text} />
+        <Metadata name={name} description={text} timestamp={timestamp}/>
         <View style={styles.orContainer}>
           <Divider style={styles.divider} />
         </View>
@@ -23,12 +27,11 @@ export default class Item extends React.Component {
   }
 }
 
-const Metadata = ({ name, description}) => (
+const Metadata = ({ name, description, timestamp}) => (
   <View style={styles.padding}>
     <Text style={styles.text}>{name}</Text>
     <Text style={styles.subtitle}>{description}</Text>
     <IconBar/>
-
   </View>
 );
 
@@ -37,12 +40,12 @@ const Icon = ({ name }) => (
 ); 
 
 
-const IconBar = () => (
+const IconBar = ({timestamp,}) => (
   <View style={styles.row}>
+  <Text>{moment(timestamp).format('D-MMM-YYYY')}</Text>
     <View style={styles.row}>
       <Icon name="ios-heart-outline" />
       <Icon name="ios-chatbubbles-outline" />
     </View>
-    <Text>timestamp</Text>
   </View>
 );
