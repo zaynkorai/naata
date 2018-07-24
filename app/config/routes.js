@@ -60,9 +60,9 @@ export default class extends React.Component {
 
                     <Stack key="Main" initial={this.state.isLoggedIn}>
 
-                        <Scene key="tabbar" tabs tabBarPosition="bottom" >
-                            <Scene key="Feed" title="Feeds" component={Feed}  icon={TabIcon}  />
-                            <Scene key="NewPost" title="New Post" component={NewPost} icon={TabIcon} />
+                        <Scene key="tabbar" tabs tabBarPosition="bottom" tabBarStyle={{ borderTopColor: '#00bb00', borderTopWidth: 1, }} >
+                            <Scene key="Feed" title="Feeds" component={Feed} />
+                            <Scene key="NewPost" title="New Post" component={NewPost} />
                         </Scene>
 
                     </Stack>
